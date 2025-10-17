@@ -1,0 +1,5 @@
+BATSMAN RUNS SCORED REPORT
+**********************************
+CRICKET PLAYER: dog
+STADIUM: cat
+TOTAL RUNS SCORED: 69
