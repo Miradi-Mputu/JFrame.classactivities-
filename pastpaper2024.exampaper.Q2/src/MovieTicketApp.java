@@ -39,7 +39,9 @@ public class MovieTicketApp extends JFrame {
 
         //adding labels and input components
         InputPanel.add(new JLabel("Select Movie"));
-        MovieBox = new JComboBox<>(new String[]{"Napoleon", "Oppenheimer", "Damsel"});
+        MovieBox = new JComboBox<>(new String[]{"Napoleon", "Oppenheimer"});
+        //what ever the user landes on or selects will be put into the input of the movieBox selection
+        //it is treated like the normal user input but instead of a text box it is a list option
         InputPanel.add(MovieBox);
 
         InputPanel.add(new JLabel("Number of Tickets"));
