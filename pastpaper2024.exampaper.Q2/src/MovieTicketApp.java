@@ -23,7 +23,7 @@ public class MovieTicketApp extends JFrame {
     private String currentReport = "";
 
     //we create an object of our MovieTickets class to use its methods
-    private MovieTickets movieTickets = new MovieTickets();
+    public MovieTickets movieTickets = new MovieTickets();
 
     public MovieTicketApp() {
         //this is for the format of the page
@@ -90,7 +90,7 @@ public class MovieTicketApp extends JFrame {
                     }
 
                     //calculate total including VAT using MovieTickets class
-                    double totalPrice = movieTickets.calculateTotal(numberOfTickets, ticketPrice);
+                    double totalPrice = movieTickets.CalculateTotalTicketPrice(numberOfTickets, ticketPrice);
 
                     //generate the report text
                     currentReport = "MOVIE NAME: " + movieName +

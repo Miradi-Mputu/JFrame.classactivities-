@@ -4,8 +4,6 @@ import java.io.IOException;
 //this class handles all calculations, validation, and saving the report to a file
 public class MovieTickets {
 
-    private static final double VAT = 0.14; // 14% VAT
-
     //method to validate data entered by user
     public boolean validateData(String movieName, int numberOfTickets, double ticketPrice) {
         if (movieName == null || movieName.isEmpty()) {
@@ -18,9 +16,9 @@ public class MovieTickets {
     }
 
     //method to calculate total ticket price including VAT
-    public double calculateTotal(int numberOfTickets, double ticketPrice) {
+    public double CalculateTotalTicketPrice(int numberOfTickets, double ticketPrice) {
         double subtotal = numberOfTickets * ticketPrice;
-        return subtotal + (subtotal * VAT);
+        return subtotal + (subtotal * 0.14);
     }
 
     //method to save report text to a file
