@@ -23,7 +23,6 @@ public class MovieTicketApp extends JFrame {
     private String currentReport = "";
 
     //we create an object of our MovieTickets class to use its methods
-    public MovieTickets movieTickets = new MovieTickets();
 
     public MovieTicketApp() {
         //this is for the format of the page
@@ -82,6 +81,7 @@ public class MovieTicketApp extends JFrame {
                     String movieName = (String) MovieBox.getSelectedItem();
                     int numberOfTickets = Integer.parseInt(TicketNumberField.getText());
                     double ticketPrice = Double.parseDouble(TicketPriceField.getText());
+                    MovieTickets movieTickets = new MovieTickets(movieName, numberOfTickets, ticketPrice);
 
                     //call validation method from MovieTickets class
                     if (!movieTickets.validateData(movieName, numberOfTickets, ticketPrice)) {
@@ -110,13 +110,16 @@ public class MovieTicketApp extends JFrame {
         SaveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 if (currentReport.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "No report to save. Please generate a report first.", "Save Error", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
 
                 try {
+                    MovieTickets movieTickets = new MovieTickets();
                     movieTickets.saveReportToFile(currentReport);
+
                     JOptionPane.showMessageDialog(null, "Report saved to report.txt successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(null, "Error saving the file.", "File Error", JOptionPane.ERROR_MESSAGE);

@@ -1,7 +1,4 @@
-MOVIE TICKET REPORT
-******************************
-MOVIE NAME: Oppenheimer
-MOVIE TICKET PRICE: R 123.0
+MOVIE NAME: Napoleon
+MOVIE TICKET PRICE: R 10.0
 NUMBER OF TICKETS: 2
-TOTAL TICKET PRICE (incl. VAT): R 280.44
-******************************
+TOTAL TICKET PRICE (incl. VAT): R 23.0

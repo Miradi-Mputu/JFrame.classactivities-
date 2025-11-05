@@ -1,10 +1,21 @@
 import java.io.FileWriter;
 import java.io.IOException;
 
-//this class handles all calculations, validation, and saving the report to a file
-public class MovieTickets {
+public class MovieTickets implements IMovieTickets {
+    private String movieName;
+    private int numberOfTickets;
+    private double ticketPrice;
 
-    //method to validate data entered by user
+    public MovieTickets() {
+        // empty constructor for save button
+    }
+
+    public MovieTickets(String movieName, int numberOfTickets, double ticketPrice) {
+        this.movieName = movieName;
+        this.numberOfTickets = numberOfTickets;
+        this.ticketPrice = ticketPrice;
+    }
+
     public boolean validateData(String movieName, int numberOfTickets, double ticketPrice) {
         if (movieName == null || movieName.isEmpty()) {
             return false;
@@ -15,19 +26,19 @@ public class MovieTickets {
         return true;
     }
 
-    //method to calculate total ticket price including VAT
     public double CalculateTotalTicketPrice(int numberOfTickets, double ticketPrice) {
-        double subtotal = numberOfTickets * ticketPrice;
-        return subtotal + (subtotal * 0.14);
+        double vat = 0.15;
+        return numberOfTickets * ticketPrice * (1 + vat);
     }
 
-    //method to save report text to a file
-    public void saveReportToFile(String reportText) throws IOException {
+    @Override
+    public boolean ValidateData(MovieTicketData movieTicketData) {
+        return false;
+    }
+
+    public void saveReportToFile(String report) throws IOException {
         try (FileWriter writer = new FileWriter("report.txt")) {
-            writer.write("MOVIE TICKET REPORT\n");
-            writer.write("******************************\n");
-            writer.write(reportText + "\n");
-            writer.write("******************************\n");
+            writer.write(report);
         }
     }
 }

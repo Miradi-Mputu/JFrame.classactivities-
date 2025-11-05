@@ -1,4 +1,4 @@
-public class MovieTicketData {
+public class MovieTicketData implements IMovieTickets {
     public String movieName;
     public int numberOfTickets;
     public double ticketPrice;
@@ -19,5 +19,15 @@ public class MovieTicketData {
 
     public double getTicketPrice() {
         return ticketPrice;
+    }
+
+    @Override
+    public double CalculateTotalTicketPrice(int numberOfTickets, double ticketPrice) {
+        return 0;
+    }
+
+    @Override
+    public boolean ValidateData(MovieTicketData movieTicketData) {
+        return false;
     }
 }
